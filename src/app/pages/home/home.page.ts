@@ -9,10 +9,9 @@ import {CategoriaDetallePage} from '../categoria-detalle/categoria-detalle.page'
 })
 export class HomePage implements OnInit {
 
-    @ViewChild(CategoriaDetallePage) menu: CategoriaDetallePage;
+    @ViewChild(CategoriaDetallePage, {static: false}) menu: CategoriaDetallePage;
 
     onDrag() {
-        this.menu.close();
     }
 
     constructor() {

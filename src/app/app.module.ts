@@ -8,15 +8,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomePipe } from './pages/home.pipe';
-import { CategoriesPipe } from './pages/categories.pipe';
-import { CategoriaPipe } from './pages/categoria.pipe';
-import { ArticuloPipe } from './pages/articulo.pipe';
-import { FavoritosPipe } from './pages/favoritos.pipe';
-import { CestaCompraPipe } from './pages/cesta-compra.pipe';
+
 
 @NgModule({
-  declarations: [AppComponent, HomePipe, CategoriesPipe, CategoriaPipe, ArticuloPipe, FavoritosPipe, CestaCompraPipe],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
