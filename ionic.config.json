@@ -1,5 +1,7 @@
 {
   "name": "tiendaProyecto",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
