@@ -1,18 +1,50 @@
 <ion-app>
     <ion-menu side="start" menuId="custom" class="my-custom-menu" contentId="main">
         <ion-header>
-            <ion-toolbar color="dark">
-                <ion-title>Menu</ion-title>
+            <ion-toolbar color="light">
+                <ion-button slot="start" color="light" (click)="close()">
+                    <ion-icon name="md-arrow-back"></ion-icon>
+                </ion-button>
+                <ion-title text-center>Catalogo</ion-title>
+                <ion-button slot="end" (click)="log_in_out()" color="light">
+                    <ion-icon name="contact" color="danger"></ion-icon>
+                    <ion-icon name="contact" color="success"></ion-icon>
+                </ion-button>
             </ion-toolbar>
         </ion-header>
         <ion-content>
             <ion-list>
-                <ion-button (click)="openCustom()">Menu Item Custom</ion-button>
-                <ion-item>Menu Item</ion-item>
-                <ion-button (click)="openFirst()">Menu Item First</ion-button>
-                <ion-item>Menu Item</ion-item>
-                <ion-button (click)="openEnd()">Menu Item End</ion-button>
+                <ion-item (click)="navegarAHome()">
+                    Home
+                    <ion-icon slot="start" name="home"></ion-icon>
+                </ion-item>
+                <ion-item (click)="navegarACategorias()">
+                    Categorias
+                    <ion-icon slot="start" name="apps"></ion-icon>
+                </ion-item>
+                <ion-item (click)="navegarAFavoritos()">
+                    Favoritos
+                    <ion-icon slot="start" name="star"></ion-icon>
+                </ion-item>
             </ion-list>
+            <ion-toolbar color="light">
+                <ion-title text-center>Categorias</ion-title>
+            </ion-toolbar>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-toolbar color="light" text-center>
+                <ion-title>Contacta con nosotros</ion-title>
+            </ion-toolbar>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
+            <ion-item>Prueba</ion-item>
         </ion-content>
     </ion-menu>
     <ion-router-outlet id="main"></ion-router-outlet>

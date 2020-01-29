@@ -1,42 +1,58 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 import {MenuController, Platform} from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private menu: MenuController
-  ) {
-    this.initializeApp();
-  }
+    constructor(
+        private platform: Platform,
+        private splashScreen: SplashScreen,
+        private statusBar: StatusBar,
+        private menu: MenuController,
+        private route: Router
+    ) {
+        this.initializeApp();
+    }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
+    openFirst() {
+        this.menu.enable(true, 'first');
+        this.menu.open('first');
+    }
 
-  openEnd() {
-    this.menu.open('end');
-  }
+    initializeApp() {
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
+        });
+    }
 
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
+    close() {
+        this.menu.close('custom');
+    }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+    navegarAHome() {
+        this.route.navigateByUrl('home',{replaceUrl: true});
+        this.close();
+    }
+
+    navegarAFavoritos() {
+        this.route.navigateByUrl('favoritos', {replaceUrl: true});
+        this.close();
+    }
+
+    navegarACategorias() {
+        this.route.navigateByUrl('categorias', {replaceUrl: true});
+        this.close();
+    }
+
+    log_in_out() {
+        console.log('funcion Loguin');
+    }
 }

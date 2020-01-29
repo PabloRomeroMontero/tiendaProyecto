@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {CategoriaDetallePage} from '../categoria-detalle/categoria-detalle.page';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -14,10 +15,13 @@ export class HomePage implements OnInit {
 //     onDrag() {
 //     }
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit() {
     }
 
+    irAFavoritos() {
+        this.router.navigate(['favoritos']);
+    }
 }
