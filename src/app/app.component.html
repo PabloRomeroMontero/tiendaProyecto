@@ -1,6 +1,19 @@
 <ion-app>
-    <ion-toolbar color="salmon">
-        <ion-title>TiendaRomero</ion-title>
-    </ion-toolbar>
-    <ion-router-outlet></ion-router-outlet>
+    <ion-menu side="start" menuId="custom" class="my-custom-menu" contentId="main">
+        <ion-header>
+            <ion-toolbar color="dark">
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-button (click)="openCustom()">Menu Item Custom</ion-button>
+                <ion-item>Menu Item</ion-item>
+                <ion-button (click)="openFirst()">Menu Item First</ion-button>
+                <ion-item>Menu Item</ion-item>
+                <ion-button (click)="openEnd()">Menu Item End</ion-button>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
