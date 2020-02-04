@@ -1,21 +1,23 @@
 <ion-toolbar color="light">
-    <ion-title>Prueba</ion-title><ion-icon name="cart" slot="end"></ion-icon>
+    <ion-title>Prueba</ion-title>
+    <ion-icon name="cart" slot="end"></ion-icon>
 </ion-toolbar>
 
 <ion-content>
-    <IonSlides pager={true} options={slideOpts}>
-        <IonSlide>
-            <h1>Slide 1</h1>
-        </IonSlide>
-        <IonSlide>
-            <h1>Slide 2</h1>
-        </IonSlide>
-        <IonSlide>
-            <h1>Slide 3</h1>
-        </IonSlide>
-    </IonSlides>
-    <ion-button (click)="irAFavoritos()">Ir a Favoritos
-    </ion-button>
+    <div class="content">
+        <ion-slides pager={true}>
+            <ion-slide>
+                <img src="{{this.slider[0]}}"/>
+            </ion-slide>
+            <ion-slide>
+                <img src="{{this.slider[1]}}"/>
+            </ion-slide>
+            <ion-slide>
+                <img src="{{this.slider[2]}}"/>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <ion-toolbar>Secciones</ion-toolbar>
 </ion-content>
 
 
