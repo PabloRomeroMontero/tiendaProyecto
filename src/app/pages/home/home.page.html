@@ -1,9 +1,19 @@
 <ion-toolbar color="light">
-    <ion-title>Prueba</ion-title>
+    <ion-title>Prueba</ion-title><ion-icon name="cart" slot="end"></ion-icon>
 </ion-toolbar>
 
 <ion-content>
-    Pagina Home
+    <IonSlides pager={true} options={slideOpts}>
+        <IonSlide>
+            <h1>Slide 1</h1>
+        </IonSlide>
+        <IonSlide>
+            <h1>Slide 2</h1>
+        </IonSlide>
+        <IonSlide>
+            <h1>Slide 3</h1>
+        </IonSlide>
+    </IonSlides>
     <ion-button (click)="irAFavoritos()">Ir a Favoritos
     </ion-button>
 </ion-content>

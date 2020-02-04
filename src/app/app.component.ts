@@ -4,6 +4,8 @@ import {MenuController, Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {Router} from '@angular/router';
+import {FirebaseService} from './services/firebase.service';
+import {Categoria} from './interfaces/categoria';
 
 @Component({
     selector: 'app-root',
@@ -11,14 +13,20 @@ import {Router} from '@angular/router';
     styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+    categorias: Categoria[] = [];
+
     constructor(
         private platform: Platform,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
         private menu: MenuController,
-        private route: Router
+        private route: Router,
+        private fire: FirebaseService
     ) {
         this.initializeApp();
+        this.fire.getCategorias().subscribe(data => {
+            this.categorias = data;
+        });
     }
 
     openFirst() {
@@ -38,7 +46,7 @@ export class AppComponent {
     }
 
     navegarAHome() {
-        this.route.navigateByUrl('home',{replaceUrl: true});
+        this.route.navigateByUrl('home', {replaceUrl: true});
         this.close();
     }
 
