@@ -12,12 +12,17 @@ export class FirebaseService {
     articulos: Articulos[] = [];
     // categorias: Categoria[] = [];
 
-    const;
     urlCrud = 'https://tiendaproyecto-143b4.firebaseio.com';
 
     constructor(private http: HttpClient) {
     }
 
+    getArticulos() {
+        return this.http.get(`${this.urlCrud}/articulos.json`)
+            .pipe(
+                map(this.createArray)
+            );
+    }
 
     getCategorias() {
         return this.http.get(`${this.urlCrud}/categorias.json`)

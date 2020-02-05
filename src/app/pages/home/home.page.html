@@ -1,11 +1,22 @@
-<ion-toolbar color="light">
-    <ion-title>Prueba</ion-title>
-    <ion-icon name="cart" slot="end"></ion-icon>
-</ion-toolbar>
+<ion-header xmlns="http://www.w3.org/1999/xhtml">
+    <ion-toolbar color="light">
 
+        <ion-button slot="end">
+            <ion-icon name="plus"></ion-icon>
+        </ion-button>
+        <ion-title text-center>
+            RomeroTienda
+        </ion-title>
+        <ion-button slot="end" color="light">
+            <ion-icon name="cart"></ion-icon>
+        </ion-button>
+
+
+    </ion-toolbar>
+</ion-header>
 <ion-content>
     <div class="content">
-        <ion-slides pager={true}>
+        <ion-slides pager={true} [options]="slidesConfigTop">
             <ion-slide>
                 <img src="{{this.slider[0]}}"/>
             </ion-slide>
@@ -17,7 +28,51 @@
             </ion-slide>
         </ion-slides>
     </div>
-    <ion-toolbar>Secciones</ion-toolbar>
+
+    <ion-toolbar text-center color="danger">OFERTAS</ion-toolbar>
+
+    <ion-slides [options]="sliderConfigArticles" style="background-color: darkgray" scrollbar="true">
+        <ion-slide *ngFor="let product of articulos">
+            <ion-card class="ion-card-style-custom">
+                <ion-card-content>
+                    <img src="{{product.img}}">
+                    <!--                                <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>-->
+                </ion-card-content>
+
+                <div class="content ">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col>
+                                <span style="font-size: xx-small">{{product.nombre }}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col class="col-bottom">
+                                <span style="font-size: xx-small;  padding-top: 10%">{{product.precio}}€</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-toolbar text-center color="light">Categorias</ion-toolbar>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6" *ngFor="let categoria of categorias; let i = index">
+                <ion-card>
+                    <img [src]="categoria.img" class="imgCardMain"/>
+                    <ion-card-content>
+                        <ion-card-title>
+                            <h3>{{ categoria.nombre }}</h3>
+                        </ion-card-title>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 
 

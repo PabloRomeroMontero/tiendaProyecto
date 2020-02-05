@@ -4,6 +4,8 @@ import {CategoriaDetallePage} from '../categoria-detalle/categoria-detalle.page'
 import {Router} from '@angular/router';
 import {FirebaseService} from '../../services/firebase.service';
 import {forEach} from '@angular-devkit/schematics';
+import {Categoria} from '../../interfaces/categoria';
+import {Articulos} from '../../interfaces/articulos';
 
 @Component({
     selector: 'app-home',
@@ -16,6 +18,18 @@ export class HomePage implements OnInit {
     }
 
     slider: any[] = [];
+    categorias: Categoria[] = [];
+    articulos: Articulos[] = [];
+    sliderConfigArticles = {
+        slidesPerView: 2.6,
+        spaceBetween: 5,
+        centeredSlides: true,
+        autoplay: 1,
+        pager: true
+    };
+    slidesConfigTop = {
+        autoplay: 1
+    };
 
 
     ngOnInit() {
@@ -24,9 +38,19 @@ export class HomePage implements OnInit {
             this.slider.push(data[2]);
             this.slider.push(data[3]);
         });
+        this.fire.getCategorias().subscribe( data => {
+           this.categorias = data;
+        });
+        this.fire.getArticulos().subscribe( data => {
+            this.articulos = data;
+        });
     }
 
     irAFavoritos() {
         this.router.navigate(['favoritos']);
     }
+
+
+
+
 }
