@@ -46,8 +46,8 @@ export class HomePage implements OnInit {
         });
     }
 
-    irAFavoritos() {
-        this.router.navigate(['favoritos']);
+    irACategoria(id: string) {
+        this.router.navigate(['categorias', id]);
     }
 
 

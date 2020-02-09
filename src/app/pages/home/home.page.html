@@ -36,7 +36,6 @@
             <ion-card class="ion-card-style-custom">
                 <ion-card-content>
                     <img src="{{product.img}}">
-                    <!--                                <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>-->
                 </ion-card-content>
 
                 <div class="content ">
@@ -48,7 +47,7 @@
                         </ion-row>
                         <ion-row>
                             <ion-col class="col-bottom">
-                                <span style="font-size: xx-small;  padding-top: 10%">{{product.precio}}€</span>
+                                <span style="font-size: xx-small;  padding-bottom: 10%">{{product.precio}}€</span>
                             </ion-col>
                         </ion-row>
                     </ion-grid>
@@ -61,10 +60,10 @@
 
     <ion-grid>
         <ion-row>
-            <ion-col size="6" *ngFor="let categoria of categorias; let i = index">
+            <ion-col size="6" *ngFor="let categoria of categorias;">
                 <ion-card>
-                    <img [src]="categoria.img" class="imgCardMain"/>
-                    <ion-card-content>
+                    <img [src]="categoria.img" (click)="irACategoria(categoria.id)" padding-bottom class="imgCardMain"/>
+                    <ion-card-content >
                         <ion-card-title>
                             <h3>{{ categoria.nombre }}</h3>
                         </ion-card-title>
