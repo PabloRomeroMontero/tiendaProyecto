@@ -31,6 +31,31 @@ export class FirebaseService {
             );
     }
 
+    getArticulosCategoria(idCategoria: string) {
+        this.articulos = [];
+        switch (idCategoria) {
+            case 'hombre': {
+                this.getArticulos().subscribe(data => {
+                        console.log(data);
+                    }
+                );
+                break;
+            }
+
+            case 'mujer': {
+                break;
+            }
+
+            case 'infatil': {
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+
+    }
+
     getSlider() {
         return this.http.get(`${this.urlCrud}/slider.json`);
     }

@@ -17,10 +17,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/favoritos/favoritos.module').then(m => m.FavoritosPageModule)
     },
     {
-        path: 'categoria-detalle',
-        loadChildren: () => import('./pages/categoria-detalle/categoria-detalle.module').then(m => m.CategoriaDetallePageModule)
-    },
-    {
         path: 'categorias',
         loadChildren: () => import('./pages/categorias/categorias.module').then(m => m.CategoriasPageModule)
     },

@@ -17,13 +17,13 @@
 <ion-content>
     <div class="content">
         <ion-slides pager={true} [options]="slidesConfigTop">
-            <ion-slide>
+            <ion-slide (click)="irACategoria('hombre')">
                 <img src="{{this.slider[0]}}"/>
             </ion-slide>
-            <ion-slide>
+            <ion-slide (click)="irACategoria('mujer')">
                 <img src="{{this.slider[1]}}"/>
             </ion-slide>
-            <ion-slide>
+            <ion-slide (click)="irACategoria('infantil')">
                 <img src="{{this.slider[2]}}"/>
             </ion-slide>
         </ion-slides>

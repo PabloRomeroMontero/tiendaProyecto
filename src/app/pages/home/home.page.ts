@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuController} from '@ionic/angular';
-import {CategoriaDetallePage} from '../categoria-detalle/categoria-detalle.page';
 import {Router} from '@angular/router';
 import {FirebaseService} from '../../services/firebase.service';
 import {forEach} from '@angular-devkit/schematics';
