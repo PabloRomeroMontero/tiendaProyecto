@@ -56,7 +56,7 @@ export class AppComponent {
     }
 
     navegarACategorias() {
-        this.route.navigateByUrl('categorias', {replaceUrl: true});
+        this.route.navigateByUrl('categorias', {replaceUrl: false});
         this.close();
     }
 

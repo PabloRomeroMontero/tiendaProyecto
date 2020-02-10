@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid *ngIf="params == null">
     <ion-row>
       <ion-col>
         ion-col
@@ -185,4 +185,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+  <div *ngIf="params != null">
+    {{this.params}}
+  </div>
 </ion-content>
