@@ -4,7 +4,7 @@
         <ion-button slot="end">
             <ion-icon name="plus"></ion-icon>
         </ion-button>
-        <ion-title text-center>
+        <ion-title class="ion-text-center">
             RomeroTienda
         </ion-title>
         <ion-button slot="end" color="light">
@@ -29,7 +29,7 @@
         </ion-slides>
     </div>
 
-    <ion-toolbar text-center color="danger">OFERTAS</ion-toolbar>
+    <ion-toolbar class="ion-text-center" color="danger">OFERTAS</ion-toolbar>
 
     <ion-slides [options]="sliderConfigArticles" style="background-color: darkgray" scrollbar="true">
         <ion-slide *ngFor="let product of articulos">

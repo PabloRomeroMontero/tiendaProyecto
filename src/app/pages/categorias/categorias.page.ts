@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MenuController} from '@ionic/angular';
 import {Categoria} from '../../interfaces/categoria';
 import {FirebaseService} from '../../services/firebase.service';
+import {Articulos} from '../../interfaces/articulos';
 
 @Component({
     selector: 'app-categorias',
@@ -11,11 +12,23 @@ import {FirebaseService} from '../../services/firebase.service';
 })
 export class CategoriasPage implements OnInit, OnDestroy {
 
-    constructor(private router: ActivatedRoute, private menu: MenuController, private fire: FirebaseService) {
+    constructor(private router: ActivatedRoute, private route: Router, private menu: MenuController, private fire: FirebaseService) {
+      if (this.params != null) {
+        console.log(this.categorias);
+        for (const categoria of this.categorias) {
+          console.log(this.params + '-' + categoria);
+          if (this.params === categoria.id) {
+            this.categoriaSeleccionada = categoria;
+          }
+        }
+        this.articulos = this.fire.getArticulosCategoria(this.params);
+      }
     }
 
     params: any;
     categorias: Categoria[] = [];
+    articulos: Articulos[] = [];
+    categoriaSeleccionada: Categoria;
 
     ngOnInit() {
         this.fire.getCategorias().subscribe(data => {
@@ -26,9 +39,7 @@ export class CategoriasPage implements OnInit, OnDestroy {
             console.log(params.id);
         });
 
-        if (this.params != null) {
-            this.fire.getArticulosCategoria(this.params);
-        }
+
 
 
         // this.menu.enable(false, 'custom');
@@ -39,4 +50,7 @@ export class CategoriasPage implements OnInit, OnDestroy {
         console.log('Destruyo categorias');
     }
 
+    irACategoria(id: string) {
+        this.route.navigate(['categorias', id]);
+    }
 }

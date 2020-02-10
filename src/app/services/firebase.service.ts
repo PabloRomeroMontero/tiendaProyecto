@@ -31,7 +31,7 @@ export class FirebaseService {
             );
     }
 
-    getArticulosCategoria(idCategoria: string) {
+    getArticulosCategoria(idCategoria: string): Articulos[] {
         this.articulos = [];
         switch (idCategoria) {
             case 'hombre': {
@@ -53,7 +53,7 @@ export class FirebaseService {
                 break;
             }
         }
-
+        return this.articulos;
     }
 
     getSlider() {
