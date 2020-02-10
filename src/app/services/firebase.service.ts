@@ -68,7 +68,6 @@ export class FirebaseService {
         }
         Object.keys(newsObj).forEach(key => {
             if (key !== '0') {
-                console.log(key);
                 const ne: Categoria = newsObj[key];
                 ne.id = key;
                 nuevaLista.push(ne);

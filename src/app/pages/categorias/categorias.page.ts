@@ -26,6 +26,10 @@ export class CategoriasPage implements OnInit, OnDestroy {
             console.log(params.id);
         });
 
+        if (this.params != null) {
+            this.fire.getArticulosCategoria(this.params);
+        }
+
 
         // this.menu.enable(false, 'custom');
     }
