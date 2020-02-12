@@ -36,7 +36,7 @@ export class FirebaseService {
         switch (idCategoria) {
             case 'hombre': {
                 this.getArticulos().subscribe(data => {
-                        console.log(data);
+                        console.log(data + 'hols¡');
                     }
                 );
                 break;

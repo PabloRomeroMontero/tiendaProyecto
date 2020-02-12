@@ -13,7 +13,7 @@ import {Articulos} from '../../interfaces/articulos';
 })
 export class HomePage implements OnInit {
 
-    constructor(private router: Router, private fire: FirebaseService) {
+    constructor(private router: Router, private fire: FirebaseService, private menu: MenuController) {
     }
 
     slider: any[] = [];
@@ -37,19 +37,32 @@ export class HomePage implements OnInit {
             this.slider.push(data[2]);
             this.slider.push(data[3]);
         });
-        this.fire.getCategorias().subscribe( data => {
-           this.categorias = data;
+        this.fire.getCategorias().subscribe(data => {
+            this.categorias = data;
         });
-        this.fire.getArticulos().subscribe( data => {
-            this.articulos = data;
+        this.fire.getArticulos().subscribe(data => {
+            console.log(data);
+            data.sort(() => {
+                    return Math.random() - 0.5;
+                }
+            );
+            console.log(data);
+
+            for (const id of [1, 2, 3, 4, 5]) {
+                console.log(Math.random() - 0.5);
+                this.articulos.push(data[id]);
+            }
         });
     }
+
 
     irACategoria(id: string) {
         this.router.navigate(['categorias', id]);
     }
 
-
+    irAArticulo(id: string) {
+        this.router.navigate(['articulos-detalle', id]);
+    }
 
 
 }

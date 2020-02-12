@@ -1,8 +1,8 @@
 <ion-header xmlns="http://www.w3.org/1999/xhtml">
     <ion-toolbar color="light">
 
-        <ion-button slot="end">
-            <ion-icon name="plus"></ion-icon>
+        <ion-button slot="start" color="light" (click)="this.menu.open('custom')">
+            <ion-icon name="menu"></ion-icon>
         </ion-button>
         <ion-title class="ion-text-center">
             RomeroTienda
@@ -32,7 +32,7 @@
     <ion-toolbar class="ion-text-center" color="danger">OFERTAS</ion-toolbar>
 
     <ion-slides [options]="sliderConfigArticles" style="background-color: darkgray" scrollbar="true">
-        <ion-slide *ngFor="let product of articulos">
+        <ion-slide *ngFor="let product of articulos" (click)="this.irAArticulo(product.id)">
             <ion-card class="ion-card-style-custom">
                 <ion-card-content>
                     <img src="{{product.img}}">
@@ -56,13 +56,13 @@
         </ion-slide>
     </ion-slides>
 
-    <ion-toolbar text-center color="light">Categorias</ion-toolbar>
+    <ion-toolbar class="ion-text-center" color="light">Categorias</ion-toolbar>
 
     <ion-grid>
         <ion-row>
             <ion-col size="6" *ngFor="let categoria of categorias;">
                 <ion-card>
-                    <img [src]="categoria.img" (click)="irACategoria(categoria.id)" padding-bottom class="imgCardMain"/>
+                    <img [src]="categoria.img" (click)="irACategoria(categoria.id)"  class="imgCardMain ion-padding-bottom"/>
                     <ion-card-content >
                         <ion-card-title>
                             <h3>{{ categoria.nombre }}</h3>
