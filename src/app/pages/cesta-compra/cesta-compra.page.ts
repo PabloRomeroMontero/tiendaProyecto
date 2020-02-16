@@ -28,7 +28,7 @@ export class CestaCompraPage implements OnInit {
     totalPrice() {
         let cant = 0;
         for (const value of this.cesta) {
-            cant = parseFloat(value.articulo.precio) * parseFloat(value.cantidad.toString());
+            cant = +parseFloat(value.articulo.precio) * parseFloat(value.cantidad.toString());
         }
         return cant;
     }

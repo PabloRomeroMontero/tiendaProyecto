@@ -61,7 +61,7 @@ export class CestaCompraService {
     }
 
     removeFromCarrito(article: Cesta) {
-        this.cesta.splice(this.cesta.indexOf(this.oldArt), 1);
+        this.cesta.splice(this.cesta.indexOf(article), 1);
         this.showToast('Articulo Eliminado');
     }
 }
