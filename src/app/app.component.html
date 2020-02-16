@@ -36,8 +36,8 @@
                 <ion-title>Sobre mi</ion-title>
             </ion-toolbar>
             <ion-item>Localizacion</ion-item>
-            <ion-item>Contacta con nosotros</ion-item>
-            <ion-item>Desarrollador de la App</ion-item>
+            <ion-item (click)="navegarAContactos()">Contacta con nosotros</ion-item>
+            <ion-item (click)="navegarADesarrollador()">Desarrollador de la App</ion-item>
         </ion-content>
     </ion-menu>
     <ion-router-outlet id="main"></ion-router-outlet>

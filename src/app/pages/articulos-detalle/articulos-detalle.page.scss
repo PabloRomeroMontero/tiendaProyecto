@@ -1,0 +1,22 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+}
+
+
+.grid-container-2 {
+  display: grid;
+  grid-template-columns: 4.5fr 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "cestaCompra menos cantidad mas";
+}
+
+.cestaCompra { grid-area: cestaCompra; }
+
+.cantidad { grid-area: cantidad; }
+
+.mas { grid-area: mas; }
+
+.menos { grid-area: menos; }

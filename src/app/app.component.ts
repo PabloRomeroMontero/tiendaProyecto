@@ -56,11 +56,20 @@ export class AppComponent {
     }
 
     navegarACategorias() {
-        this.route.navigateByUrl('categorias', {replaceUrl: false});
+        this.route.navigateByUrl('categorias', {replaceUrl: true});
         this.close();
     }
 
     log_in_out() {
         console.log('funcion Loguin');
+    }
+
+    navegarAContactos() {
+        this.route.navigateByUrl('contacto', {replaceUrl: true});
+        this.close();
+    }
+
+    navegarADesarrollador() {
+        this.route.navigateByUrl('desarrollador-de-la-app', {replaceUrl: true});
     }
 }

@@ -39,7 +39,15 @@ const routes: Routes = [
   {
     path: 'registrar',
     loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },  {
+    path: 'contacto',
+    loadChildren: () => import('./pages/contacto/contacto.module').then( m => m.ContactoPageModule)
   },
+  {
+    path: 'desarrollador-de-la-app',
+    loadChildren: () => import('./pages/desarrollador-de-la-app/desarrollador-de-la-app.module').then( m => m.DesarrolladorDeLaAppPageModule)
+  },
+
 ];
 
 @NgModule({

@@ -61,7 +61,7 @@ export class CategoriasPage implements OnInit, OnDestroy {
                 break;
             }
 
-            case 'infatil': {
+            case 'infantil': {
                 this.categoriaSeleccionada = 'Moda Infantil';
 
                 this.fire.getArticulos().subscribe(data => {
@@ -106,5 +106,13 @@ export class CategoriasPage implements OnInit, OnDestroy {
 
     irACategoria(id: string) {
         this.route.navigate(['categorias', id]);
+    }
+
+    irACesta() {
+        this.route.navigate(['cesta-compra']);
+    }
+
+    irAArticulo(id: string) {
+        this.route.navigate(['articulos-detalle', id]);
     }
 }

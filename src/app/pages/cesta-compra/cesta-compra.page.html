@@ -1,9 +1,62 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cestaCompra</ion-title>
-  </ion-toolbar>
+
+    <ion-toolbar color="light">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">
+            Cesta de la Compra
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="this.cesta.length > 0">
+    <ion-list>
+        <ion-item *ngFor="let data of cesta">
+            <ion-card>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col size="6">
+                            <img [src]='data.articulo.img' float-left class="img">
+                        </ion-col>
+                        <ion-col size="6">
+                            {{data.articulo.nombre}}
+                            <hr/>
+                            <span><b>Cantidad: {{data.cantidad}}</b></span><br>
+                            <span><b>Precio por unidad: {{data.articulo.precio}}€</b></span><br>
+                            <span><b>Total: {{total(data.articulo.precio, data.cantidad)}}</b></span><br>
+                            <hr/>
+                            <ion-buttons>
+                                <ion-button (click)="deleteItem(data)" color="danger">
+                                    <ion-icon name="close"></ion-icon>
+                                </ion-button>
+                            </ion-buttons>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card>
+        </ion-item>
+    </ion-list>
+    <div class="contenedor">
+        <hr color="gray"/>
+        <ion-buttons>
+            <ion-button expand="full" (click)="cleanCarrito()">Limpiar Cesta</ion-button>
+            <ion-button expand="full" (click)="buy()">Comprar</ion-button>
+            <ion-button expand="full" disabled="true">Total: {{totalPrice()}}€</ion-button>
+        </ion-buttons>
+    </div>
 
+</ion-content>
+
+<ion-content padding *ngIf="this.cesta.length == 0">
+    No han añadido productos al carrito todavia.
+
+  <div class="contenedor">
+      <hr color="gray"/>
+    <ion-buttons>
+      <ion-button expand="full" (click)="cleanCarrito()">Limpiar Cesta</ion-button>
+      <ion-button expand="full" (click)="buy()" disabled="true">Comprar</ion-button>
+      <ion-button expand="full" disabled="true">Total: {{totalPrice()}}€</ion-button>
+    </ion-buttons>
+  </div>
 </ion-content>

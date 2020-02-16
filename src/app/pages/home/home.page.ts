@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {FirebaseService} from '../../services/firebase.service';
-import {forEach} from '@angular-devkit/schematics';
 import {Categoria} from '../../interfaces/categoria';
 import {Articulos} from '../../interfaces/articulos';
 
@@ -22,7 +21,7 @@ export class HomePage implements OnInit {
     sliderConfigArticles = {
         slidesPerView: 2.6,
         spaceBetween: 5,
-        centeredSlides: true,
+        centeredSlides: false,
         autoplay: 1,
         pager: true
     };
@@ -65,4 +64,7 @@ export class HomePage implements OnInit {
     }
 
 
+    irACesta() {
+        this.router.navigate(['cesta-compra']);
+    }
 }
