@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>articulosDetalle</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+<ion-slides>
+  <ion-slide *ngIf="this.articulo"><img src="{{this.articulo.img}}"></ion-slide>
+  <ion-slide *ngIf="this.articulo"><img src="{{this.articulo.img2}}"></ion-slide>
+</ion-slides>
+  <hr>
+  <h2 *ngIf="this.articulo">{{this.articulo.nombre}}</h2>
+  <hr>
+  <h2>Descripcion</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngIf="this.articulo && this.articulo.descripcion.length>200">{{this.articulo.descripcion.substr(0,199)}}... <a>ver mas</a></ion-col>
+      <ion-col size="6" *ngIf="this.articulo && this.articulo.descripcion.length<200">{{this.articulo.descripcion}}</ion-col>
+      <ion-col size="6" class="ion-padding ion-text-center" *ngIf="this.articulo"><h3>{{this.articulo.precio}}€</h3></ion-col>
+    </ion-row>
+    <ion-buttons>
+      <ion-button>Añadir a cesta</ion-button>
+      <ion-button>aBububu</ion-button>
+    </ion-buttons>
+  </ion-grid>
 </ion-content>
