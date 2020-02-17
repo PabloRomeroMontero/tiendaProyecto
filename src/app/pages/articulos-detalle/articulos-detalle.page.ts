@@ -79,9 +79,10 @@ export class ArticulosDetallePage implements OnInit {
 
 
     cambiarFavorito(item: Articulos) {
-        console.log('Antes ' + this.fav.getFavoritos());
+        console.log(this.fav.getFavoritos());
+        console.log(item);
         this.fav.cambiarFavoritos(item);
-        console.log('Despues ' + this.fav.getFavoritos());
+        console.log(this.fav.getFavoritos());
 
     }
 

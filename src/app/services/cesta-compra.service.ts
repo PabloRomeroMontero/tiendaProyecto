@@ -19,7 +19,7 @@ export class CestaCompraService {
 
     addToCesta(article: Cesta) {
         if (this.cesta.length === 0) {
-            this.cesta.unshift(article);
+            this.cesta.push(article);
             this.showToast(article.cantidad + ' ' + article.articulo.nombre + ' añadido a la cesta!');
         } else {
             if (this.isAnOldArticle(article.articulo.id)) {
@@ -28,7 +28,7 @@ export class CestaCompraService {
                 this.showToast(article.cantidad + ' ' + article.articulo.nombre + ' añadido a la cesta! , ahora hay ' +
                     this.cesta[this.cesta.indexOf(this.oldArt)].cantidad);
             } else {
-                this.cesta.unshift(article);
+                this.cesta.push(article);
                 this.showToast(article.cantidad + ' ' + article.articulo.nombre + ' añadido a la cesta!');
             }
         }
@@ -61,7 +61,9 @@ export class CestaCompraService {
     }
 
     removeFromCarrito(article: Cesta) {
+        console.log(this.cesta.length);
         this.cesta.splice(this.cesta.indexOf(article), 1);
+        console.log(this.cesta.length);
         this.showToast('Articulo Eliminado');
     }
 }

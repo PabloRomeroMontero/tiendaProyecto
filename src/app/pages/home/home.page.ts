@@ -44,10 +44,8 @@ export class HomePage implements OnInit {
                     return Math.random() - 0.5;
                 }
             );
-            console.log(data);
 
             for (const id of [1, 2, 3, 4, 5]) {
-                console.log(Math.random() - 0.5);
                 this.articulos.push(data[id]);
             }
         });

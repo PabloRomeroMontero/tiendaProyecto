@@ -7,7 +7,6 @@ import {Articulos} from '../interfaces/articulos';
 export class FavoritosService {
 
     favorites: Articulos[] = [];
-    contador = 0;
 
     constructor() {
     }
@@ -19,11 +18,11 @@ export class FavoritosService {
     cambiarFavoritos(item: Articulos) {
         if (this.favorites.length === 0) {
             console.log('añadido');
-            this.favorites.unshift(item);
+            this.favorites.push(item);
         } else if (this.favorites.length !== 0) {
             if (this.favorites.indexOf(item) === -1) {
                 console.log('articulo añadido');
-                this.favorites.unshift(item);
+                this.favorites.push(item);
             } else {
                 console.log('Articulo Eliminado')
                 this.favorites.splice(this.favorites.indexOf(item), 1);
@@ -31,11 +30,7 @@ export class FavoritosService {
         }
     }
 
-    isTheItemFaved(item: Articulos) {
-        this.contador++;
-        console.log(this.favorites + 'articulos en favorito');
-        console.log(item.nombre + ' articulo a comprobar');
-        console.log('Este articulo esta ya faveado' + (this.favorites.indexOf(item) !== -1));
+   isTheItemFaved(item: Articulos) {
         return this.favorites.indexOf(item) !== -1;
     }
 }

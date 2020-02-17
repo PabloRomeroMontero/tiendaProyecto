@@ -58,6 +58,7 @@ export class CestaCompraPage implements OnInit {
 
 
     deleteItem(item: Cesta) {
+        console.log(this.cesta.indexOf(item));
         this.cesta.splice(this.cesta.indexOf(item), 1);
         this.cestaCompraService.removeFromCarrito(item);
 
