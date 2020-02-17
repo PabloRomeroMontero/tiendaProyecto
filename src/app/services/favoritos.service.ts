@@ -7,6 +7,7 @@ import {Articulos} from '../interfaces/articulos';
 export class FavoritosService {
 
     favorites: Articulos[] = [];
+    contador = 0;
 
     constructor() {
     }
@@ -31,7 +32,10 @@ export class FavoritosService {
     }
 
     isTheItemFaved(item: Articulos) {
-        console.log("Este articulo esta ya faveado" + this.favorites.indexOf(item) !== -1);
+        this.contador++;
+        console.log(this.favorites + 'articulos en favorito');
+        console.log(item.nombre + ' articulo a comprobar');
+        console.log('Este articulo esta ya faveado' + (this.favorites.indexOf(item) !== -1));
         return this.favorites.indexOf(item) !== -1;
     }
 }
