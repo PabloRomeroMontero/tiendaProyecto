@@ -18,8 +18,8 @@
         <div><h2 *ngIf="this.articulo">{{this.articulo.nombre}}</h2></div>
         <div>
             <ion-buttons>
-                <ion-button>
-                    <ion-icon slot="icon-only" name="heart" (click)="this.cambiarFavorito(articulo)"
+                <ion-button (click)="this.cambiarFavorito(articulo)">
+                    <ion-icon slot="icon-only" name="heart"
                               [style.color]="this.esFaveado(articulo) == true ? 'red' : 'grey'">></ion-icon>
                 </ion-button>
             </ion-buttons>

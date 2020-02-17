@@ -40,7 +40,6 @@ export class HomePage implements OnInit {
             this.categorias = data;
         });
         this.fire.getArticulos().subscribe(data => {
-            console.log(data);
             data.sort(() => {
                     return Math.random() - 0.5;
                 }

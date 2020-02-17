@@ -70,6 +70,7 @@ export class ArticulosDetallePage implements OnInit {
             cantidad: this.cantidad,
             articulo: this.articulo
         });
+        this.cantidad = 1;
     }
 
     irACesta() {
@@ -78,7 +79,10 @@ export class ArticulosDetallePage implements OnInit {
 
 
     cambiarFavorito(item: Articulos) {
+        console.log('Antes ' + this.fav.getFavoritos());
         this.fav.cambiarFavoritos(item);
+        console.log('Despues ' + this.fav.getFavoritos());
+
     }
 
     esFaveado(item: Articulos) {

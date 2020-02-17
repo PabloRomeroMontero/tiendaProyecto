@@ -8,7 +8,7 @@ import {MenuController} from '@ionic/angular';
   templateUrl: './favoritos.page.html',
   styleUrls: ['./favoritos.page.scss'],
 })
-export class FavoritosPage implements OnInit, OnDestroy {
+export class FavoritosPage implements OnInit {
   favs: Articulos[] = [];
 
   constructor( private favoritos: FavoritosService, private menu: MenuController) {
@@ -16,9 +16,6 @@ export class FavoritosPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.favs = this.favoritos.getFavoritos();
-  }
-
-  ngOnDestroy() {
   }
 
   unfav(item: Articulos) {

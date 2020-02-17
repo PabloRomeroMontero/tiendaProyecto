@@ -48,10 +48,10 @@ export class CestaCompraPage implements OnInit {
     }
 
     buy() {
-        this.cestaCompraService.showToast('Se han comprado los articulos. Se ha descargado un PDF con la factura. Muchas Gracias');
-        this.cesta.splice(0);
         this.createPdf();
         this.downloadPdf();
+        this.cestaCompraService.showToast('Se han comprado los articulos. Se ha descargado un PDF con la factura. Muchas Gracias');
+        this.cesta.splice(0);
         this.cestaCompraService.cleanCart();
         this.router.navigateByUrl('/home');
     }
@@ -68,11 +68,16 @@ export class CestaCompraPage implements OnInit {
         const cestaNombre = [];
         const cestaPrecios = [];
         const cestaCantidad = [];
+
+
         for (const articulos of this.cesta) {
             cestaNombre.push(articulos.articulo.nombre);
             cestaPrecios.push(articulos.articulo.precio);
-            cestaPrecios.push(articulos.cantidad);
+            cestaCantidad.push(articulos.cantidad);
         }
+        console.log(this.cesta);
+        console.log(cestaNombre);
+
         const docDefinition = {
             content: [
                 {text: 'TIENDAS ROMERO', style: 'header'},
@@ -87,7 +92,7 @@ export class CestaCompraPage implements OnInit {
                 {
                     ul: cestaNombre
                 },
-                {text: 'Total: ' + this.totalPrice() + '€'}
+                {text: 'Total: ' + this.totalPrice() + '€', style: 'story', margin: [20, 20, 0, 20]}
             ],
             styles: {
                 header: {
