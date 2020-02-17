@@ -16,7 +16,6 @@ export class FavoritosService {
     }
 
     cambiarFavoritos(item: Articulos) {
-        console.log('He Entrado en el metodo');
         if (this.favorites.length === 0) {
             console.log('añadido');
             this.favorites.unshift(item);
@@ -32,6 +31,7 @@ export class FavoritosService {
     }
 
     isTheItemFaved(item: Articulos) {
+        console.log("Este articulo esta ya faveado" + this.favorites.indexOf(item) !== -1);
         return this.favorites.indexOf(item) !== -1;
     }
 }
