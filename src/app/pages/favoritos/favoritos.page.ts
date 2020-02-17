@@ -12,16 +12,13 @@ export class FavoritosPage implements OnInit, OnDestroy {
   favs: Articulos[] = [];
 
   constructor( private favoritos: FavoritosService, private menu: MenuController) {
-    console.log('he construido Favs');
   }
 
   ngOnInit() {
     this.favs = this.favoritos.getFavoritos();
-    console.log('el console a destiempo del onInit');
   }
 
   ngOnDestroy() {
-    console.log('he sido destruido');
   }
 
   unfav(item: Articulos) {
