@@ -51,7 +51,7 @@
     </ion-grid>
     <hr color="gray"/>
     <div class="grid-container-2">
-        <div class="cestaCompra" ><ion-button expand="block" color="tertiary" (click)="adirACesta(this.articulo.id)">Añadir a cesta</ion-button></div>
+        <div class="cestaCompra" ><ion-button expand="block" color="tertiary" (click)="adirACesta()">Añadir a cesta</ion-button></div>
         <div class="mas"><ion-button expand="block" color="success" (click)="masArticulos()"><ion-icon name="add"></ion-icon></ion-button></div>
         <div class="cantidad"><ion-button expand="block" disabled="true">{{cantidad}}</ion-button></div>
         <div class="menos" ><ion-button expand="block" color="danger" (click)="menosArticulos()"><ion-icon name="remove"></ion-icon></ion-button></div>
